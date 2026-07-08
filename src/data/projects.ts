@@ -8,7 +8,7 @@ export interface Project {
   tagline: string;
   description: string[];
   tags: string[];
-  featured: boolean;
+  category: 'featured' | 'research' | 'other';
   links?: { label: string; href: string }[];
   media: MediaItem[];
 }
@@ -23,7 +23,7 @@ export const projects: Project[] = [
       'I built a humanoid that walks reliably for under $300 in hardware, and later built a VR teleoperation system for controlling a mobile robot remotely.',
     ],
     tags: ['Startup', 'Humanoid Robotics', 'Teleoperation', 'VR', 'Controls'],
-    featured: true,
+    category: 'featured',
     media: [
       { type: 'video', src: '/videos/vibe/clip-3.mp4', poster: '/images/projects/vibe/clip-3.jpg' },
       { type: 'video', src: '/videos/vibe/clip-4.mp4', poster: '/images/projects/vibe/clip-4.jpg' },
@@ -44,7 +44,7 @@ export const projects: Project[] = [
       'Presented as a poster at Purdue CS.',
     ],
     tags: ['Robotics', 'MPC', 'Perception', 'Multi-Robot', 'Research'],
-    featured: true,
+    category: 'research',
     links: [],
     media: [
       { type: 'image', src: '/images/me/poster.jpg', alt: 'Presenting the Multi-Arm Robot Table Tennis research poster at Purdue' },
@@ -58,7 +58,7 @@ export const projects: Project[] = [
       'Published research on language-guided active sensing — using natural language instructions to inform how a robot chooses where to look and what to sense next, rather than sensing passively or exhaustively.',
     ],
     tags: ['Research', 'Active Sensing', 'Language Models', 'Robotics'],
-    featured: true,
+    category: 'research',
     links: [{ label: 'arXiv:2402.02308', href: 'https://arxiv.org/abs/2402.02308' }],
     media: [
       { type: 'video', src: '/videos/language-guided-active-sensing/clip-1.mp4', poster: '/images/projects/language-guided-active-sensing/clip-1.jpg' },
@@ -72,7 +72,7 @@ export const projects: Project[] = [
       'Published research (with Yuchen Liu, Alexiy Buynitsky, and Ahmed H. Qureshi, Purdue Department of Computer Science) on self-supervised hierarchical navigation policy learning that incorporates physics priors to help a robot navigate unknown environments without relying on hand-labeled supervision.',
     ],
     tags: ['Research', 'Robotics', 'Navigation', 'Self-Supervised Learning'],
-    featured: false,
+    category: 'research',
     links: [{ label: 'arXiv:2510.01519v1', href: 'https://arxiv.org/pdf/2510.01519v1' }],
     media: [
       { type: 'video', src: '/videos/mntfields/clip-1.mp4', poster: '/images/projects/mntfields/clip-1.jpg' },
@@ -86,7 +86,7 @@ export const projects: Project[] = [
       'Using the Trossen ALOHA bimanual robot arms to physically play Connect 4, combining vision-language-action (VLA) models with traditional planning and control methods for piece placement.',
     ],
     tags: ['Robotics', 'VLA', 'Manipulation'],
-    featured: false,
+    category: 'other',
     media: [
       { type: 'image', src: '/images/me/lab-arms.jpg', alt: 'Holding the Trossen ALOHA dual-arm robot setup used for Connect 4' },
       { type: 'video', src: '/videos/aloha-connect-4/clip-1.mp4', poster: '/images/projects/aloha-connect-4/clip-1.jpg' },
@@ -101,7 +101,7 @@ export const projects: Project[] = [
       'An extension of the Aloha Connect 4 project onto a mobile robot dog, using YOLO-based object detection to make piece and board detection more robust to movement and viewpoint changes.',
     ],
     tags: ['Robotics', 'Computer Vision', 'YOLO', 'Quadruped'],
-    featured: false,
+    category: 'featured',
     media: [
       { type: 'image', src: '/images/projects/robot-dog-connect-4-1.jpg', alt: 'Robot dog Connect 4 setup' },
       { type: 'image', src: '/images/projects/robot-dog-connect-4-2.jpg', alt: 'Robot dog Connect 4 setup' },
@@ -117,7 +117,7 @@ export const projects: Project[] = [
       'A VR badminton game/experience, built from scratch — covering racket physics, shuttlecock flight, and player interaction in virtual reality.',
     ],
     tags: ['VR', 'Game Dev', 'Physics'],
-    featured: false,
+    category: 'other',
     media: [
       { type: 'video', src: '/videos/vr-badminton/clip-1.mp4', poster: '/images/projects/vr-badminton/clip-1.jpg' },
     ],
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       'An AI-powered karaoke system that separates vocals and instruments from any song in real time, so you can sing karaoke to any track at home instead of paying for a KTV room.',
     ],
     tags: ['Audio ML', 'Real-Time Systems'],
-    featured: false,
+    category: 'other',
     media: [],
   },
 ];

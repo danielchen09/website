@@ -3,8 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects } from '../data/projects';
 
-const featured = projects.filter((p) => p.featured);
-const rest = projects.filter((p) => !p.featured);
+const featured = projects.filter((p) => p.category === 'featured');
+const research = projects.filter((p) => p.category === 'research');
+const rest = projects.filter((p) => p.category === 'other');
 ---
 
 <Layout title="Wei-Han (Daniel) Chen — Robotics & ML Engineer">
@@ -47,6 +48,11 @@ const rest = projects.filter((p) => !p.featured);
     <h2 class="font-mono text-sm text-[var(--color-ink-muted)] mb-6">// featured work</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       {featured.map((project) => <ProjectCard project={project} />)}
+    </div>
+
+    <h2 class="font-mono text-sm text-[var(--color-ink-muted)] mt-16 mb-6">// research papers</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      {research.map((project) => <ProjectCard project={project} />)}
     </div>
 
     <h2 class="font-mono text-sm text-[var(--color-ink-muted)] mt-16 mb-6">// more projects</h2>
