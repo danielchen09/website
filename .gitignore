@@ -28,3 +28,11 @@ pnpm-debug.log*
 
 # local tool config
 .claude/
+
+# LaTeX build artifacts
+resume/*.aux
+resume/*.log
+resume/*.out
+resume/*.fls
+resume/*.fdb_latexmk
+resume/*.synctex.gz
