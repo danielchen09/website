@@ -1,6 +1,6 @@
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage[margin=0.5in]{geometry}
+\usepackage[top=0.45in,bottom=0.45in,left=0.5in,right=0.5in]{geometry}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{titlesec}
@@ -15,20 +15,20 @@
 \setlist[itemize]{leftmargin=1.15em, topsep=0pt, itemsep=0pt, parsep=0pt, partopsep=0pt}
 \AtBeginEnvironment{itemize}{\small}
 \titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
-\titlespacing*{\section}{0pt}{4pt}{2pt}
+\titlespacing*{\section}{0pt}{3pt}{7pt}
 
 % Robust title+date row: independent top-aligned minipages so long,
 % wrapping titles never collide with the date column (tabularx does).
 \newcommand{\resumeSubheading}[4]{%
   \begin{minipage}[t]{0.74\textwidth}\raggedright\textbf{#1}\end{minipage}\hfill
-  \begin{minipage}[t]{0.23\textwidth}\raggedleft #2\end{minipage}\\
+  \begin{minipage}[t]{0.23\textwidth}\raggedleft #2\end{minipage}\\[2pt]
   \begin{minipage}[t]{0.74\textwidth}\raggedright\textit{#3}\end{minipage}\hfill
   \begin{minipage}[t]{0.23\textwidth}\raggedleft\textit{#4}\end{minipage}\\[-2pt]
 }
 
 \newcommand{\resumeProject}[2]{%
   \begin{minipage}[t]{0.78\textwidth}\raggedright\textbf{#1}\end{minipage}\hfill
-  \begin{minipage}[t]{0.19\textwidth}\raggedleft\textit{#2}\end{minipage}\\[-2pt]
+  \begin{minipage}[t]{0.19\textwidth}\raggedleft\textit{#2}\end{minipage}\\[-6pt]
 }
 
 % extra breathing room between one entry's bullets and the next heading
@@ -56,7 +56,7 @@
 
 \section{Experience}
 \resumeSubheading
-  {Vibe}
+  {Vibe Robotics}
   {}
   {Co-Founder}
   {Oct 2025 -- Present}
@@ -86,18 +86,10 @@
 \end{itemize}
 
 \section{Relevant Projects and Publications}
-\resumeProject{Scaling Neural Motion Planners}{Nov 2024 -- May 2025}
+\resumeProject{Robotic Connect 4 (Dual-Arm and Quadruped)}{Feb 2026 -- Jul 2026}
 \begin{itemize}
-    \item Created a framework that scales neural motion planners to indoor environments up to 1000 ft\textsuperscript{2}, evaluated on large Gibson 3D environments.
-    \item Demonstrated sim-to-real capabilities by mapping and navigating campus buildings.
-    \item \href{https://arxiv.org/abs/2510.01519}{arxiv.org/abs/2510.01519}
-\end{itemize}
-\resumeGap
-\resumeProject{Language-Guided Active Sensing of Confined, Cluttered Environments}{Jan 2023 -- Sep 2023}
-\begin{itemize}
-    \item Devised a method for efficient exploration of a robot arm in cluttered environments via object rearrangement planning, evaluated on 100+ randomly generated environments. Publication accepted to ICRA 2024.
-    \item Utilized large vision and language models for sim-to-real capabilities, validated by running user tests on a real UR5e robot arm.
-    \item \href{https://arxiv.org/abs/2402.02308}{arxiv.org/abs/2402.02308}
+    \item Programmed a dual-arm Trossen ALOHA robot to physically play Connect 4 against a human opponent, combining vision-language-action (VLA) models with traditional planning and control for piece placement.
+    \item Extended the system to a mobile quadruped robot, integrating YOLO-based object detection to make piece and board detection robust to movement and viewpoint changes.
 \end{itemize}
 \resumeGap
 \resumeProject{Multi-Arm Robot Table Tennis}{2025 -- Present}
@@ -107,10 +99,18 @@
     \item Presented as a poster at Purdue CS.
 \end{itemize}
 \resumeGap
-\resumeProject{Robotic Connect 4 (Dual-Arm and Quadruped)}{Feb 2026 -- Jul 2026}
+\resumeProject{Scaling Neural Motion Planners}{Nov 2024 -- May 2025}
 \begin{itemize}
-    \item Programmed a dual-arm Trossen ALOHA robot to physically play Connect 4 against a human opponent, combining vision-language-action (VLA) models with traditional planning and control for piece placement.
-    \item Extended the system to a mobile quadruped robot, integrating YOLO-based object detection to make piece and board detection robust to movement and viewpoint changes.
+    \item Created a framework that scales neural motion planners to indoor environments up to 1000 ft\textsuperscript{2}, evaluated on large Gibson 3D environments.
+    \item Demonstrated sim-to-real capabilities by mapping and navigating campus buildings.
+    \item Accepted to IROS, \href{https://arxiv.org/abs/2510.01519}{arxiv.org/abs/2510.01519}
+\end{itemize}
+\resumeGap
+\resumeProject{Language-Guided Active Sensing of Confined, Cluttered Environments}{Jan 2023 -- Sep 2023}
+\begin{itemize}
+    \item Devised a method for efficient exploration of a robot arm in cluttered environments via object rearrangement planning, evaluated on 100+ randomly generated environments. Publication accepted to ICRA 2024.
+    \item Utilized large vision and language models for sim-to-real capabilities, validated by running user tests on a real UR5e robot arm.
+    \item Accepted to ICRA, \href{https://arxiv.org/abs/2402.02308}{arxiv.org/abs/2402.02308}
 \end{itemize}
 \resumeGap
 \resumeProject{AI-Powered Karaoke System}{Dec 2022 -- Feb 2023}
