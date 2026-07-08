@@ -1,0 +1,126 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+
+\definecolor{accent}{HTML}{B45309}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.15em, topsep=0pt, itemsep=0pt, parsep=0pt, partopsep=0pt}
+\AtBeginEnvironment{itemize}{\small}
+\titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{4pt}{2pt}
+
+% Robust title+date row: independent top-aligned minipages so long,
+% wrapping titles never collide with the date column (tabularx does).
+\newcommand{\resumeSubheading}[4]{%
+  \begin{minipage}[t]{0.74\textwidth}\raggedright\textbf{#1}\end{minipage}\hfill
+  \begin{minipage}[t]{0.23\textwidth}\raggedleft #2\end{minipage}\\
+  \begin{minipage}[t]{0.74\textwidth}\raggedright\textit{#3}\end{minipage}\hfill
+  \begin{minipage}[t]{0.23\textwidth}\raggedleft\textit{#4}\end{minipage}\\[-2pt]
+}
+
+\newcommand{\resumeProject}[2]{%
+  \begin{minipage}[t]{0.78\textwidth}\raggedright\textbf{#1}\end{minipage}\hfill
+  \begin{minipage}[t]{0.19\textwidth}\raggedleft\textit{#2}\end{minipage}\\[-2pt]
+}
+
+% extra breathing room between one entry's bullets and the next heading
+\newcommand{\resumeGap}{\vspace{5pt}}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Wei-Han (\textcolor{accent}{Daniel}) Chen}}\\[2pt]
+    West Lafayette, IN 47906 \;|\; 765-327-5655 \;|\; \href{mailto:chen3189@purdue.edu}{chen3189@purdue.edu}\\[0pt]
+    \href{https://weihanchen.com}{weihanchen.com} \;|\; \href{https://www.linkedin.com/in/danielchen09/}{linkedin.com/in/danielchen09} \;|\; \href{https://github.com/danielchen09}{github.com/danielchen09}
+\end{center}
+
+\section{Education}
+\resumeSubheading
+  {Purdue University, College of Science}
+  {West Lafayette, IN}
+  {M.A. and Ph.D. in Computer Science, GPA: 3.96 / 4.00}
+  {Aug 2023 -- Present}
+\resumeSubheading
+  {Purdue University, College of Science}
+  {West Lafayette, IN}
+  {Bachelor of Computer Science, GPA: 3.89 / 4.00}
+  {Aug 2019 -- May 2023}
+
+\section{Experience}
+\resumeSubheading
+  {Vibe}
+  {}
+  {Co-Founder}
+  {Oct 2025 -- Present}
+\begin{itemize}
+    \item Co-founded a robotics startup building low-cost humanoid robots for the home; engineered a humanoid that walks reliably for under \$300 in total hardware cost.
+    \item Built a VR teleoperation system for real-time remote control of a mobile robot.
+\end{itemize}
+\resumeGap
+\resumeSubheading
+  {Purdue University}
+  {West Lafayette, IN}
+  {Graduate Teaching Assistant, Intro to AI}
+  {Aug 2024 -- Dec 2024}
+\begin{itemize}
+    \item Hosted help sessions for a class of over 60 graduate students.
+    \item Explained modern AI techniques such as CSPs and reinforcement learning to students.
+\end{itemize}
+\resumeGap
+\resumeSubheading
+  {GIS}
+  {}
+  {Assistant IT Engineer, Internship}
+  {Dec 2020 -- May 2021}
+\begin{itemize}
+    \item Developed several company internal apps to help boost the productivity of the IT and HR departments.
+    \item Utilized business data analytics tool FineBI alongside SQL to analyze employee data.
+\end{itemize}
+
+\section{Relevant Projects and Publications}
+\resumeProject{Scaling Neural Motion Planners}{Nov 2024 -- May 2025}
+\begin{itemize}
+    \item Created a framework that scales neural motion planners to indoor environments up to 1000 ft\textsuperscript{2}, evaluated on large Gibson 3D environments.
+    \item Demonstrated sim-to-real capabilities by mapping and navigating campus buildings.
+    \item \href{https://arxiv.org/abs/2510.01519}{arxiv.org/abs/2510.01519}
+\end{itemize}
+\resumeGap
+\resumeProject{Language-Guided Active Sensing of Confined, Cluttered Environments}{Jan 2023 -- Sep 2023}
+\begin{itemize}
+    \item Devised a method for efficient exploration of a robot arm in cluttered environments via object rearrangement planning, evaluated on 100+ randomly generated environments. Publication accepted to ICRA 2024.
+    \item Utilized large vision and language models for sim-to-real capabilities, validated by running user tests on a real UR5e robot arm.
+    \item \href{https://arxiv.org/abs/2402.02308}{arxiv.org/abs/2402.02308}
+\end{itemize}
+\resumeGap
+\resumeProject{Multi-Arm Robot Table Tennis}{2025 -- Present}
+\begin{itemize}
+    \item Investigating whether multiple low-cost robot arms can collaboratively play table tennis without relying on expensive sensors or hardware.
+    \item Localized the ball in real time with two 200Hz cameras and generated multi-robot strike trajectories via collocation MPC, with task allocation learned by a neural network that assigns each strike to the best-positioned arm.
+    \item Presented as a poster at Purdue CS.
+\end{itemize}
+\resumeGap
+\resumeProject{Robotic Connect 4 (Dual-Arm and Quadruped)}{Feb 2026 -- Jul 2026}
+\begin{itemize}
+    \item Programmed a dual-arm Trossen ALOHA robot to physically play Connect 4 against a human opponent, combining vision-language-action (VLA) models with traditional planning and control for piece placement.
+    \item Extended the system to a mobile quadruped robot, integrating YOLO-based object detection to make piece and board detection robust to movement and viewpoint changes.
+\end{itemize}
+\resumeGap
+\resumeProject{AI-Powered Karaoke System}{Dec 2022 -- Feb 2023}
+\begin{itemize}
+    \item Developed a karaoke system with automatic music-voice separation and lyrics alignment as a mobile/desktop site connected to the YouTube API, parallelizing deep neural network and server workloads for a smooth user experience.
+\end{itemize}
+
+\section{Skills}
+\small
+\textbf{Robotics and ML:} Path/multi-robot planning, MPC, RGB-D/LiDAR perception, ROS 2, PyTorch, neural motion planners, reinforcement learning\\
+\textbf{Hardware and Systems:} Embedded/servo control, 3D-printed mechanical design, low-cost robot hardware, VR teleoperation
+
+\end{document}
