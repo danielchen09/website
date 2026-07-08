@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MediaItemComponent from '../../components/MediaItem.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} — Wei-Han Chen`} description={project.tagline}>
+  <article class="max-w-3xl mx-auto px-6 py-16 sm:py-20">
+    <a href="/#work" class="font-mono text-sm text-[var(--color-ink-muted)] hover:text-accent-500 transition-colors">
+      &larr; back to work
+    </a>
+
+    <h1 class="mt-6 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">{project.title}</h1>
+    <p class="mt-2 text-[var(--color-ink-muted)]">{project.tagline}</p>
+
+    <div class="mt-4 flex flex-wrap gap-2">
+      {project.tags.map((tag) => (
+        <span class="font-mono text-[11px] px-2 py-0.5 rounded-full border border-[var(--color-border)] text-[var(--color-ink-muted)]">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    {project.links && project.links.length > 0 && (
+      <div class="mt-4 flex flex-wrap gap-4">
+        {project.links.map((link) => (
+          <a href={link.href} class="text-sm text-accent-500 hover:underline">{link.label} &rarr;</a>
+        ))}
+      </div>
+    )}
+
+    <div class="mt-8 space-y-4 text-[var(--color-ink-muted)] leading-relaxed">
+      {project.description.map((para) => <p>{para}</p>)}
+    </div>
+
+    {project.media.length > 0 && (
+      <div class="mt-10 grid sm:grid-cols-2 gap-6">
+        {project.media.map((item) => (
+          <div class="aspect-video">
+            <MediaItemComponent item={item} />
+          </div>
+        ))}
+      </div>
+    )}
+  </article>
+</Layout>

@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+
+const featured = projects.filter((p) => p.featured);
+const rest = projects.filter((p) => !p.featured);
+---
+
+<Layout title="Wei-Han Chen — Robotics & ML Engineer">
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-8">
+      <img
+        src="/images/me/headshot.jpg"
+        alt="Wei-Han Chen"
+        class="h-28 w-28 sm:h-32 sm:w-32 rounded-full object-cover border border-[var(--color-border)]"
+      />
+      <div>
+        <p class="font-mono text-sm text-accent-500 mb-2">Hi, I'm Wei-Han —</p>
+        <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight text-[var(--color-ink)]">
+          I build robots, from research labs to your living room.
+        </h1>
+        <p class="mt-4 text-[var(--color-ink-muted)] max-w-xl">
+          Robotics & ML engineer. Currently building humanoid robots for the home at
+          <span class="text-[var(--color-ink)]"> Vibe</span>. Previously: multi-robot
+          planning and perception research at Purdue.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            href="#work"
+            class="px-4 py-2 rounded-md bg-accent-500 text-neutral-900 text-sm font-medium hover:bg-accent-400 transition-colors"
+          >
+            See my work
+          </a>
+          <a
+            href="#contact"
+            class="px-4 py-2 rounded-md border border-[var(--color-border)] text-sm font-medium text-[var(--color-ink)] hover:border-accent-500/50 transition-colors"
+          >
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="max-w-4xl mx-auto px-6 py-16 scroll-mt-16">
+    <h2 class="font-mono text-sm text-[var(--color-ink-muted)] mb-6">// featured work</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      {featured.map((project) => <ProjectCard project={project} />)}
+    </div>
+
+    <h2 class="font-mono text-sm text-[var(--color-ink-muted)] mt-16 mb-6">// more projects</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      {rest.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-20 scroll-mt-16">
+    <div class="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-8 sm:p-10 text-center">
+      <h2 class="text-2xl font-semibold text-[var(--color-ink)]">Let's talk</h2>
+      <p class="mt-2 text-[var(--color-ink-muted)]">
+        Looking for internship opportunities in robotics and ML. Reach out if you'd like to chat.
+      </p>
+      <a
+        href="mailto:daniel.weihan.chen@gmail.com"
+        class="mt-6 inline-block px-5 py-2.5 rounded-md bg-accent-500 text-neutral-900 text-sm font-medium hover:bg-accent-400 transition-colors"
+      >
+        daniel.weihan.chen@gmail.com
+      </a>
+    </div>
+  </section>
+</Layout>

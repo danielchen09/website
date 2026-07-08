@@ -1,0 +1,43 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const cover = project.media[0];
+---
+
+<a
+  href={`/projects/${project.slug}`}
+  class="group block rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden hover:border-accent-500/50 transition-colors"
+>
+  <div class="aspect-video bg-[var(--color-surface-hover)] overflow-hidden">
+    {cover ? (
+      <img
+        src={cover.type === 'video' ? cover.poster : cover.src}
+        alt={project.title}
+        loading="lazy"
+        class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+      />
+    ) : (
+      <div class="w-full h-full grid place-items-center font-mono text-xs text-[var(--color-ink-muted)]">
+        no media yet
+      </div>
+    )}
+  </div>
+  <div class="p-5">
+    <h3 class="font-medium text-[var(--color-ink)] group-hover:text-accent-500 transition-colors">
+      {project.title}
+    </h3>
+    <p class="mt-1 text-sm text-[var(--color-ink-muted)]">{project.tagline}</p>
+    <div class="mt-3 flex flex-wrap gap-2">
+      {project.tags.slice(0, 3).map((tag) => (
+        <span class="font-mono text-[11px] px-2 py-0.5 rounded-full border border-[var(--color-border)] text-[var(--color-ink-muted)]">
+          {tag}
+        </span>
+      ))}
+    </div>
+  </div>
+</a>

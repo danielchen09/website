@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About — Wei-Han Chen" description="About Wei-Han Chen: robotics & ML engineer.">
+  <section class="max-w-3xl mx-auto px-6 py-16 sm:py-20">
+    <h1 class="text-3xl font-semibold tracking-tight text-[var(--color-ink)]">About</h1>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-8">
+      <img
+        src="/images/me/lab-arms.jpg"
+        alt="Wei-Han Chen with a dual-arm robot setup"
+        class="w-full sm:w-64 h-64 object-cover rounded-lg border border-[var(--color-border)] flex-shrink-0"
+      />
+      <div class="space-y-4 text-[var(--color-ink-muted)] leading-relaxed">
+        <p>
+          I'm Wei-Han Chen, a robotics and machine learning engineer. I'm currently building
+          <span class="text-[var(--color-ink)]">Vibe</span>, a startup developing humanoid
+          robots for the home — I built a humanoid that walks reliably for under $300, and
+          a VR teleoperation system for controlling mobile robots remotely.
+        </p>
+        <p>
+          My research background is in multi-robot planning and perception, including
+          published work on language-guided active sensing and low-cost collaborative
+          planning for multi-arm robot table tennis at Purdue's SCALE Robotics Lab.
+        </p>
+        <p>
+          Outside of research and the startup, I like building things that are a little
+          more fun with the same tools — robots that play Connect 4, VR badminton, and
+          real-time audio ML for karaoke.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="font-mono text-sm text-[var(--color-ink-muted)] mb-4">// looking for</h2>
+      <p class="text-[var(--color-ink)]">
+        Internship opportunities in robotics, machine learning, and controls. Reach out at
+        <a href="mailto:daniel.weihan.chen@gmail.com" class="text-accent-500 hover:underline">daniel.weihan.chen@gmail.com</a>.
+      </p>
+    </div>
+  </section>
+</Layout>

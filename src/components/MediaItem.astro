@@ -1,0 +1,28 @@
+---
+import type { MediaItem } from '../data/projects';
+
+interface Props {
+  item: MediaItem;
+  alt?: string;
+}
+
+const { item, alt } = Astro.props;
+---
+
+{item.type === 'video' ? (
+  <video
+    class="w-full h-full object-cover rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-hover)]"
+    controls
+    preload="none"
+    poster={item.poster}
+  >
+    <source src={item.src} type="video/mp4" />
+  </video>
+) : (
+  <img
+    class="w-full h-full object-cover rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-hover)]"
+    src={item.src}
+    alt={alt ?? item.alt}
+    loading="lazy"
+  />
+)}
